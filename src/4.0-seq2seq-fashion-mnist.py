@@ -216,12 +216,15 @@ for epoch in range(n_epochs):
         zip(range(N_TRAIN_BATCHES), train_dataset), total=N_TRAIN_BATCHES
     ):
         model.train(train_x)
+        break
     # test on holdout
     loss = []
     for batch, test_x in tqdm(
         zip(range(N_TEST_BATCHES), test_dataset), total=N_TEST_BATCHES
     ):
         loss.append(model.compute_loss(train_x))
+        break
+    break
     losses.loc[len(losses)] = np.mean(loss, axis=0)
     # plot results
     display.clear_output()

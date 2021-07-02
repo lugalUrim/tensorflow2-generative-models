@@ -177,7 +177,8 @@ def plot_reconstruction(model, example_data, nex=5, zm=3):
         ax.axis("off")
     plt.show()
 
-
+print(model.compute_loss(example_data))
+exit(0)
 # a pandas dataframe to save the loss information to
 losses = pd.DataFrame(columns = ['MSE'])
 

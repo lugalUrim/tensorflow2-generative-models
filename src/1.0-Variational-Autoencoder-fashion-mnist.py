@@ -181,7 +181,6 @@ model = VAE(
 # exampled data for plotting results
 example_data = next(iter(test_dataset))
 
-
 def plot_reconstruction(model, example_data, nex=8, zm=2):
 
     example_data_reconstructed = model.reconstruct(example_data)
@@ -215,12 +214,15 @@ for epoch in range(n_epochs):
         zip(range(N_TRAIN_BATCHES), train_dataset), total=N_TRAIN_BATCHES
     ):
         model.train(train_x)
+        break
     # test on holdout
     loss = []
     for batch, test_x in tqdm(
         zip(range(N_TEST_BATCHES), test_dataset), total=N_TEST_BATCHES
     ):
         loss.append(model.compute_loss(train_x))
+        break
+    break
     losses.loc[len(losses)] = np.mean(loss, axis=0)
     # plot results
     display.clear_output()
@@ -231,7 +233,7 @@ for epoch in range(n_epochs):
     )
     plot_reconstruction(model, example_data)
 
-
+exit(0)
 # ### show grid in 2D latent space
 
 # sample from grid

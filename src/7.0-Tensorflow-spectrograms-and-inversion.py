@@ -202,7 +202,7 @@ def inv_spectrogram_tensorflow(spectrogram, hparams):
 
 
 reconstructed_y = inv_spectrogram_tensorflow(np.transpose(spectrogram), hparams)
-
+exit(0)
 
 fig, axs = plt.subplots(ncols=1, nrows=2, figsize=(15,3))
 axs[0].plot(data)

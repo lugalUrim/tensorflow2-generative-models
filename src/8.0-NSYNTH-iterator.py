@@ -54,12 +54,12 @@ DATA_DIR = Path("data").resolve()
 DATA_DIR
 
 
-ds_train, ds_test = tfds.load(
-    name="nsynth", split=["train", "test"], data_dir=DATA_DIR
+ds_test = tfds.load(
+    name="nsynth", split=["test"], data_dir=DATA_DIR
 )
 
 
-ds_train
+ds_train = ds_test
 
 
 # ### Prepare spectrogramming and parameters
@@ -275,7 +275,7 @@ from tqdm.autonotebook import tqdm
 
 for batch, train_x in tqdm(
         zip(range(1000), dset.dataset_train), total=1000):
-    continue
+    break
 
 
 
